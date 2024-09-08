@@ -38,8 +38,8 @@ type Token struct {
 	Literal string
 }
 
-func LookUpIdentType(str string) TokType {
-	if val, ok := keywords[str]; ok {
+func LookUpIdentType(ident string) TokType {
+	if val, ok := keywords[ident]; ok {
 		return val
 	}
 	return IDENT
