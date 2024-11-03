@@ -34,7 +34,7 @@ func (l *Lexer) peekChar() byte {
 
 func (l *Lexer) readIdentifier() string {
 	position := l.position
-	for isLetter(l.input[l.readPosition]) {
+	for l.readPosition < len(l.input) && isLetter(l.input[l.readPosition]) {
 		l.readChar()
 	}
 	return l.input[position:l.readPosition]
@@ -42,7 +42,7 @@ func (l *Lexer) readIdentifier() string {
 
 func (l *Lexer) readNumber() string {
 	position := l.position
-	for isDigit(l.input[l.readPosition]) {
+	for l.readPosition < len(l.input) && isDigit(l.input[l.readPosition]) {
 		l.readChar()
 	}
 	return l.input[position:l.readPosition]
